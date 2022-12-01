@@ -8,10 +8,7 @@ class Client(models.Model):
     car = models.CharField(max_length=30)
 
     def __str__(self):
-        return [self.first_name,
-                self.last_name,
-                self.phone_number,
-                self.car]
+        return f'{self.first_name} - {self.last_name} - {self.phone_number} - {self.car}'
 
 
 class Worker(models.Model):
@@ -20,9 +17,7 @@ class Worker(models.Model):
     experience = models.IntegerField()
 
     def __str__(self):
-        return [self.first_name,
-                self.last_name,
-                self.experience]
+        return f'{self.first_name} - {self.last_name} - {self.experience}years'
 
 
 class Service(models.Model):
@@ -31,11 +26,11 @@ class Service(models.Model):
     cost = models.IntegerField()
 
     def __str__(self):
-        return [self.name, self.time, self.cost]
+        return f'{self.name} - {self.time}hours - {self.cost}$'
 
 
 class Timetable(models.Model):
     start_time = models.DateTimeField(auto_now_add=False)
-    client = models.OneToOneField(Client, on_delete=models.SET_NULL)
+    client = models.OneToOneField(Client, on_delete=models.CASCADE)
     list_of_services = models.ManyToManyField(Service)
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
