@@ -1,0 +1,16 @@
+{% extends 'services/base.html' %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+
+{% block content %}
+   <h3>Our Services</h3>
+   {% include 'includes/navbar.html' %}
+    <ul>
+        {% for service in services %}
+            <li>{{ service }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

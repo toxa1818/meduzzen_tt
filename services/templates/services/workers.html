@@ -1,0 +1,16 @@
+{% extends 'services/base.html' %}
+
+{% block title %}
+    Workers
+{% endblock %}
+
+
+{% block content %}
+   <h3>Our Workers</h3>
+   {% include 'includes/navbar.html' %}
+    <ul>
+        {% for worker in workers %}
+            <li>{{ worker }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
