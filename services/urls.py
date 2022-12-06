@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.main, name='main'),
     path('/services', views.services, name='services'),
     path('/workers', views.workers, name='workers'),
-    #path('/timetable', views.timetable, name='timetable'),
+    path('/timetable', views.entries, name='entries'),
 ]

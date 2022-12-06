@@ -31,6 +31,9 @@ class Service(models.Model):
 
 class Timetable(models.Model):
     start_time = models.DateTimeField(auto_now_add=False)
-    client = models.OneToOneField(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     list_of_services = models.ManyToManyField(Service)
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.client}: {self.start_time}'
