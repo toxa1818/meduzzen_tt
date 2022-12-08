@@ -6,11 +6,11 @@
 
 
 {% block content %}
-   <h3>Timetable:</h3>
    {% include 'includes/navbar.html' %}
+    <h3>Timetable:</h3>
     <ul>
         {% for entry in entries %}
-            <li>{{ entry }}</li>
+            <li>{{ entry.start_time }}: {{ entry.client.first_name }}, {{ entry.client.car }}</li>
         {% endfor %}
     </ul>
 {% endblock %}

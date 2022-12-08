@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Worker, Service, Timetable
+from .models import Worker, Service, Entries
 
 
 def main(request):
@@ -16,6 +16,6 @@ def services(request):
     return render(request, 'services/services.html', context)
 
 def entries(request):
-    entries = Timetable.objects.order_by('start_time')
+    entries = Entries.objects.order_by('start_time')
     context = {'entries': entries}
     return render(request, 'services/timetable.html', context)

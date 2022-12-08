@@ -6,11 +6,12 @@
 
 
 {% block content %}
-   <h3>Our Services</h3>
    {% include 'includes/navbar.html' %}
+    <h3>Our Services:</h3>
     <ul>
         {% for service in services %}
-            <li>{{ service }}</li>
+            <li>{{ service.name }}: duration - {{ service.time }} hours, price - {{ service.cost }}$</li>
         {% endfor %}
     </ul>
+    {% include 'includes/contacts.html' %}
 {% endblock %}

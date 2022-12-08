@@ -6,11 +6,12 @@
 
 
 {% block content %}
-   <h3>Our Workers</h3>
    {% include 'includes/navbar.html' %}
+    <h3>Our Workers:</h3>
     <ul>
         {% for worker in workers %}
-            <li>{{ worker }}</li>
+            <li>{{ worker.first_name }} {{ worker.last_name}}, experience: {{ worker.experience }} years</li>
         {% endfor %}
     </ul>
+    {% include 'includes/contacts.html' %}
 {% endblock %}
