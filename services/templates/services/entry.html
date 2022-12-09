@@ -1,0 +1,22 @@
+{% extends 'services/base.html' %}
+
+{% block title %}
+    Entry
+{% endblock %}
+
+
+{% block content %}
+   {% include 'includes/navbar.html' %}
+    <h3>Full info about Entry:</h3>
+    <h5>Start - {{ entry.start_time }}</h5>
+    <h5>Client: {{ entry.client }}</h5>
+    <h5>Worker: {{ entry.worker.first_name }} {{ entry.worker.last_name }}</h5>
+    <hr>
+    <h5>Services:</h5>
+    <ul>
+        {% for service in entry.list_of_services.all %}
+            <li>{{ service.name }}</li>
+        {% endfor %}
+    </ul>
+    {% include 'includes/contacts.html' %}
+{% endblock %}

@@ -10,7 +10,8 @@
     <h3>Timetable:</h3>
     <ul>
         {% for entry in entries %}
-            <li>{{ entry.start_time }}: {{ entry.client.first_name }}, {{ entry.client.car }}</li>
+            <li><a href="{% url 'services:entry' entry.id %}">{{ entry.start_time|date:"d-m-Y H:i" }}:</a> {{ entry.client.first_name }}, {{ entry.client.car }}</li>
         {% endfor %}
     </ul>
+    {% include 'includes/contacts.html' %}
 {% endblock %}

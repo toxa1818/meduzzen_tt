@@ -19,3 +19,8 @@ def entries(request):
     entries = Entries.objects.order_by('start_time')
     context = {'entries': entries}
     return render(request, 'services/timetable.html', context)
+
+def show_one_entry(request, entry_id):
+    entry = Entries.objects.get(id=entry_id)
+    context = {'entry': entry}
+    return render(request, 'services/entry.html', context)
